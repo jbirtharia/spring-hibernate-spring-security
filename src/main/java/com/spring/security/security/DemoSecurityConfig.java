@@ -103,4 +103,6 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
         * resources folder and static files are accessible.*/
         web.ignoring().antMatchers("/resources/**");
     }
+
+
 }

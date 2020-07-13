@@ -75,9 +75,13 @@
                 <c:if test="${param.error != null}">
                     <p style="color:red" class="txt1 p-b-9"> Sorry! You have entered invalid username or password </p>
                 </c:if>
+
                 <c:if test="${param.logout != null}">
                     <p style="color:#0088cc" class="txt1 p-b-9"> You have been logged out </p>
                 </c:if>
+
+
+                <p style="color:#0088cc" class="txt1 p-b-9"> ${message} </p>
 
 
                 <div class="flex-col-c p-t-170 p-b-40">

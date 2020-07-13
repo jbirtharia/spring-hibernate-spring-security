@@ -4,11 +4,10 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import java.util.Collection;
 
+
 public class UserContext extends User {
 
-    private String username;
-
-    private String password;
+    private Integer id;
 
     public UserContext(String username, String password, boolean enabled, boolean accountNonExpired,
                        boolean credentialsNonExpired, boolean accountNonLocked, Collection<? extends GrantedAuthority> authorities)
@@ -17,27 +16,43 @@ public class UserContext extends User {
         super(username, password, enabled,accountNonExpired,credentialsNonExpired,accountNonLocked,authorities);
     }
 
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @Override
     public String getUsername() {
-        return username;
+        return super.getUsername();
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
+    @Override
     public String getPassword() {
-        return password;
+        return super.getPassword();
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    @Override
+    public boolean isEnabled() {
+        return super.isEnabled();
+    }
+
+    @Override
+    public Collection<GrantedAuthority> getAuthorities() {
+        return super.getAuthorities();
     }
 
     @Override
     public String toString() {
         return "UserContext{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
+                "id=" + id +
+                ", username='" + this.getUsername() + '\'' +
+                ", password='" + this.getPassword() + '\'' +
+                ", authorities='" + this.getAuthorities() + '\'' +
+                ", enabled='" + this.isEnabled() + '\'' +
                 '}';
     }
 }

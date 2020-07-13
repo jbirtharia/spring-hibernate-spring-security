@@ -5,4 +5,6 @@ import com.spring.security.entity.Users;
 public interface SecurityDao {
 
     public Users loadUserByUsername(String username);
+
+    public void save(Users user);
 }

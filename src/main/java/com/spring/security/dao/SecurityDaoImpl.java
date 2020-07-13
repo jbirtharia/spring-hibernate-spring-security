@@ -1,5 +1,6 @@
 package com.spring.security.dao;
 
+import com.spring.security.entity.Authorities;
 import com.spring.security.entity.Users;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -21,7 +22,11 @@ public class SecurityDaoImpl implements SecurityDao{
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from Users u where u.username =: username");
         query.setParameter("username",username);
-        Users users = (Users) query.getSingleResult();
-        return users;
+        return (Users) query.getResultList().stream().findFirst().orElse(null);
+    }
+
+    @Override
+    public void save(Users user) {
+        sessionFactory.getCurrentSession().save(user);
     }
 }

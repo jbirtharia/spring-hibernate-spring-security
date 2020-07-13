@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %> <%-- Taglib for spring form tags --%>
 <html>
 <head>
     <title>Sign Up</title>
@@ -47,14 +48,15 @@
 </head>
 <body>
 <div>
-    <form action="#">
+    <%--@elvariable id="user" type="com.spring.security.entity.Users"--%>
+    <form:form action="processUser" modelAttribute="user">
 
 
         <div style="font-family: Ubuntu-Bold;font-size: 15px">
 
-            Username : <input class="input101" type="text" name="username" placeholder="Username" /><br><br>
+            Username : <form:input class="input101" type="text" name="username" placeholder="Username"  path="username"/><br><br>
 
-            Password : <input class="input101" type="password" name="password" placeholder="Password"/>
+            Password : <form:input class="input101" type="password" name="password" placeholder="Password" path="password"/>
         </div>
 
         <br><br><br>
@@ -62,7 +64,7 @@
             <input class="login100-form-btn" type="submit" value="Submit" style="padding-left: 150px; padding-right: 150px;">
         </div>
 
-    </form>
+    </form:form>
 </div>
 
 <!--===============================================================================================-->

@@ -50,7 +50,7 @@
 <br><br><br><br><br><br><br>
 <h3 style="text-align: center">Sorry Something Went Wrong !!!!</h3>
 <br><br><br>
-<a href="${pageContext.request.contextPath}/" class="txt3" style="text-align: center">
+<a href="${pageContext.request.contextPath}/showMyLoginPage" class="txt3" style="text-align: center">
     Back to Home Page
 </a>
 </body>

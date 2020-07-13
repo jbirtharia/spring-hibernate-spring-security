@@ -8,6 +8,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -31,10 +32,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         Users user = service.loadUserByName(username);
 
         UserContext userContext=new UserContext(user.getUsername(),user.getPassword(),
-                true, true, true, true, getGrantedAuthorities(user));
-        userContext.setUsername(user.getUsername());
-        userContext.setPassword(user.getPassword());
+                user.getEnabled(), true, true, true, getGrantedAuthorities(user));
 
+        userContext.setId(user.getId());
         logger.info("UserContext : "+userContext.toString());
 
         return userContext;
